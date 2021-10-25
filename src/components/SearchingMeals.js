@@ -1,27 +1,19 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Meal from "./Meal";
+import Input from "./Input";
+import useAxios from "../hooks/useAxios";
+import Loaded from "./Loaded";
+import HomePage from "./HomePage";
 
 export default function SearchingMeals() {
   const url = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
-  const [foodUrl, setFoodUrl] = useState("");
   const [foodName, setFoodName] = useState("");
-  const [foodData, setFoodData] = useState([]);
+  const [foodUrl, setFoodUrl] = useState("");
 
-  useEffect(() => {
-    const download = async () => {
-      if (foodUrl !== "") {
-        const { data } = await axios.get(foodUrl);
-        setFoodData(data.meals);
-      }
-    };
-    download();
-    console.log(foodUrl);
-  }, [foodUrl]);
+  const { data: foodData, loaded } = useAxios(foodUrl);
 
   const handleChange = (event) => {
-    const newFood = event.target.value;
-    setFoodName(newFood);
+    setFoodName(event.target.value);
   };
 
   const search = (url) => {
@@ -33,13 +25,20 @@ export default function SearchingMeals() {
     setFoodName("");
   };
 
+  if (!loaded) {
+    return <Loaded />;
+  }
   return (
-    <div>
-      <h1> Search for a meal: </h1>
-      <input value={foodName} onChange={handleChange} />
-      <button onClick={() => search(url)}>SEARCH</button>
-      {foodData ? (
-        foodData.map((meal) => (
+    <div className="home">
+      {console.log(foodData.meals)}
+      <Input
+        foodName={foodName}
+        handleChange={handleChange}
+        search={search}
+        url={url}
+      />
+      {foodData.meals ? (
+        foodData.meals.map((meal) => (
           <Meal
             name={meal.strMeal}
             key={meal.idMeal}
@@ -47,7 +46,7 @@ export default function SearchingMeals() {
           />
         ))
       ) : (
-        <h2>No meals found! Please try something else.</h2>
+        <HomePage />
       )}
     </div>
   );
