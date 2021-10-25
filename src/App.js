@@ -1,7 +1,6 @@
-const App = () => (
-  <div>
-    <h1>Web1 starter template</h1>
-  </div>
-)
+import HomePage from "./components/HomePage";
+import SearchingMeals from "./components/SearchingMeals";
 
-export default App
+export default function App() {
+  return <SearchingMeals />;
+}
