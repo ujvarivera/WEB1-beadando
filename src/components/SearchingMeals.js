@@ -28,27 +28,34 @@ export default function SearchingMeals() {
   if (!loaded) {
     return <Loaded />;
   }
+
+  const isMealSearched = () => {
+    if (foodUrl === "") {
+      return <HomePage />;
+    }
+  };
+
   return (
     <div className="home">
-      {console.log(foodData.meals)}
       <Input
         foodName={foodName}
         handleChange={handleChange}
         search={search}
         url={url}
       />
+      {isMealSearched()}
       {foodData.meals ? (
         foodData.meals.map((meal) => (
           <Meal
             name={meal.strMeal}
             key={meal.idMeal}
             image={meal.strMealThumb}
+            data={meal}
           />
         ))
       ) : (
-        <HomePage />
+        <h1> Couldn't find anything. Please write in something else! </h1>
       )}
     </div>
   );
 }
-

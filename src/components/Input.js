@@ -1,17 +1,17 @@
-export default function Input(props) {
+export default function Input({ foodName, handleChange, search, url }) {
   return (
     <div>
       <h1> Search for a meal: </h1>
       <input
-        value={props.foodName}
-        onChange={props.handleChange}
+        value={foodName}
+        onChange={handleChange}
         onKeyPress={(event) => {
           if (event.key === "Enter") {
-            props.search(props.url);
+            search(url);
           }
         }}
       />
-      <button onClick={() => props.search(props.url)}>SEARCH</button>
+      <button onClick={() => search(url)}>SEARCH</button>
     </div>
   );
 }

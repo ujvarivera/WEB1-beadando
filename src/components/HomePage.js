@@ -16,7 +16,12 @@ export default function HomePage() {
   return (
     <div className="Home">
       {mealData.meals.map((meal) => (
-        <Meal name={meal.strMeal} key={meal.idMeal} image={meal.strMealThumb} />
+        <Meal
+          name={meal.strMeal}
+          key={meal.idMeal}
+          image={meal.strMealThumb}
+          data={meal}
+        />
       ))}
     </div>
   );
