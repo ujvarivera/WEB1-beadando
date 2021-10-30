@@ -4,11 +4,19 @@ import { Context } from "../context/FavouritesContext";
 export default function Meal({ image, name, data }) {
   const { favourites, setFavourites } = useContext(Context);
 
-  function like() {
+  function like(data) {
     if (!favourites.includes(data)) {
       setFavourites([...favourites, data]);
-      localStorage.setItem("favourites", JSON.stringify(favourites));
+      //localStorage.clear();
+      //localStorage.setItem("favourites", JSON.stringify(favourites));
     }
+  }
+
+  function unlike(data) {
+    const filtered = favourites.filter((fav) => fav !== data);
+    setFavourites(filtered);
+    //localStorage.clear();
+    //localStorage.setItem("favourites", JSON.stringify(favourites));
   }
 
   return (
@@ -18,9 +26,11 @@ export default function Meal({ image, name, data }) {
       <h2>
         <a href={data.strYoutube}>You can watch a video how to make it</a>
       </h2>
-      <h2>
-        <button onClick={like}>Like</button>
-      </h2>
+      {favourites.includes(data) ? (
+        <button onClick={() => unlike(data)}>Unlike</button>
+      ) : (
+        <button onClick={() => like(data)}>Like</button>
+      )}
     </div>
   );
 }

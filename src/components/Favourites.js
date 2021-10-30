@@ -1,10 +1,10 @@
 import Meal from "./Meal";
-//import { useContext } from "react";
-//import { Context } from "../context/FavouritesContext";
+import { useContext } from "react";
+import { Context } from "../context/FavouritesContext";
 
 export default function Favourites() {
-  //const { favourites } = useContext(Context);
-  const favourites = JSON.parse(localStorage.getItem("favourites"));
+  const { favourites } = useContext(Context);
+  //const favourites = JSON.parse(localStorage.getItem("favourites"));
 
   return (
     <div>
