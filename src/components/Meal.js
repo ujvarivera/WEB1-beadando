@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { Context } from "../context/FavouritesContext";
 
 export default function Meal({ image, name, data }) {
-  const [favourites, setFavourites] = useState([]);
+  const { favourites, setFavourites } = useContext(Context);
 
   function like() {
-    setFavourites([...favourites, data]);
+    if (!favourites.includes(data)) {
+      setFavourites([...favourites, data]);
+      localStorage.setItem("favourites", JSON.stringify(favourites));
+    }
   }
 
   return (
