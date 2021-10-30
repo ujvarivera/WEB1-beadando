@@ -20,17 +20,19 @@ export default function Meal({ image, name, data }) {
   }
 
   return (
-    <div>
+    <div className="meal-container">
       <img src={image} alt={name} />
-      <h2>{name}</h2>
-      <h2>
-        <a href={data.strYoutube}>You can watch a video how to make it</a>
-      </h2>
-      {favourites.includes(data) ? (
-        <button onClick={() => unlike(data)}>Unlike</button>
-      ) : (
-        <button onClick={() => like(data)}>Like</button>
-      )}
+      <div className="meal-description">
+        <h1>{name}</h1>
+        <h2>
+          <a href={data.strYoutube}>You can watch a video how to make it</a>
+        </h2>
+        {favourites.includes(data) ? (
+          <button className="fav" onClick={() => unlike(data)}>Unlike</button>
+        ) : (
+          <button className="fav" onClick={() => like(data)}>Like</button>
+        )}
+      </div>
     </div>
   );
 }

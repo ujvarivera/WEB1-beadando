@@ -54,7 +54,7 @@ export default function SearchingMeals() {
           />
         ))
       ) : (
-        <h1> Couldn't find anything. Please write in something else! </h1>
+        <div></div>
       )}
     </div>
   );

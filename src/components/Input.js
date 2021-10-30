@@ -1,8 +1,9 @@
 export default function Input({ foodName, handleChange, search, url }) {
   return (
-    <div>
+    <div className="input-container">
       <h1> Search for a meal: </h1>
       <input
+        className="input"
         value={foodName}
         onChange={handleChange}
         onKeyPress={(event) => {
@@ -11,7 +12,9 @@ export default function Input({ foodName, handleChange, search, url }) {
           }
         }}
       />
-      <button onClick={() => search(url)}>SEARCH</button>
+      <button className="search" onClick={() => search(url)}>
+        SEARCH
+      </button>
     </div>
   );
 }
