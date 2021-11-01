@@ -25,7 +25,7 @@ export default function Meal({ image, name, data }) {
       <div className="meal-description">
         <h1>{name}</h1>
         <h2>
-          <a href={data.strYoutube}>You can watch a video how to make it</a>
+          <a href={data.strYoutube} target="_blank" rel="noopener noreferrer">You can watch a video how to make it</a>
         </h2>
         {favourites.includes(data) ? (
           <button className="fav" onClick={() => unlike(data)}>Unlike</button>

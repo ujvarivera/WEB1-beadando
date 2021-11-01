@@ -7,8 +7,8 @@ export default function Favourites() {
   //const favourites = JSON.parse(localStorage.getItem("favourites"));
 
   return (
-    <div>
-      <h1>Your favourites:</h1>
+    <div className="favourites">
+      <h1 className="favourites-text">Your favourites:</h1>
       {favourites ? (
         favourites.map((meal) => (
           <Meal
