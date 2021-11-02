@@ -60,8 +60,16 @@
 }
 
 .search:hover,
-.fav:hover {
+.fav:hover,
+.reset:hover {
   background: #ffcccc;
+}
+
+.reset{
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 20px;
 }
 
 .meal-container {

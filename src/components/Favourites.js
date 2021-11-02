@@ -3,12 +3,14 @@ import { useContext } from "react";
 import { Context } from "../context/FavouritesContext";
 
 export default function Favourites() {
-  const { favourites } = useContext(Context);
-  //const favourites = JSON.parse(localStorage.getItem("favourites"));
+  const { favourites, reset } = useContext(Context);
 
   return (
     <div className="favourites">
       <h1 className="favourites-text">Your favourites:</h1>
+      <button className="reset" onClick={reset}>
+        Unlike all of my favourites
+      </button>
       {favourites ? (
         favourites.map((meal) => (
           <Meal

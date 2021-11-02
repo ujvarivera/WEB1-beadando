@@ -2,22 +2,7 @@ import { useContext } from "react";
 import { Context } from "../context/FavouritesContext";
 
 export default function Meal({ image, name, data }) {
-  const { favourites, setFavourites } = useContext(Context);
-
-  function like(data) {
-    if (!favourites.includes(data)) {
-      setFavourites([...favourites, data]);
-      //localStorage.clear();
-      //localStorage.setItem("favourites", JSON.stringify(favourites));
-    }
-  }
-
-  function unlike(data) {
-    const filtered = favourites.filter((fav) => fav !== data);
-    setFavourites(filtered);
-    //localStorage.clear();
-    //localStorage.setItem("favourites", JSON.stringify(favourites));
-  }
+  const { favourites, like, unlike } = useContext(Context);
 
   return (
     <div className="meal-container">
