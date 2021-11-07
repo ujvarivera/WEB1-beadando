@@ -36,11 +36,10 @@
 }
 
 .input {
-  height: 2.25rem;
-  width: 50rem;
+  height: 35px;
+  max-width: 100%;
   font-size: 25px;
   text-align: center;
-  background-color: white;
   border-radius: 10px;
 }
 
@@ -52,7 +51,7 @@
 .search,
 .fav {
   width: 100px;
-  height: 2.5rem;
+  height: 40px;
   font-size: 20px;
   border-radius: 10px;
   cursor: pointer;
@@ -67,9 +66,10 @@
 
 .reset{
   font-size: 20px;
+  height: 40px;
   border-radius: 10px;
   cursor: pointer;
-  margin: 20px;
+  float: center;
 }
 
 .meal-container {
@@ -79,8 +79,9 @@
   margin: 100px;
 }
 
-.loading {
-  text-align: center;
+.image {
+  max-width: 100%;
+  height: auto;
 }
 
 .meal-description,
@@ -94,4 +95,5 @@
 
 .favourites-text {
   margin-top: 100px;
+  margin-bottom: 20px;
 }
