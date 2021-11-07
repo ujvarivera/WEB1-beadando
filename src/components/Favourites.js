@@ -1,9 +1,8 @@
 import Meal from "./Meal";
-import { useContext } from "react";
-import { Context } from "../context/FavouritesContext";
+import useFavourites from "../hooks/useFavourites";
 
 export default function Favourites() {
-  const { favourites, reset } = useContext(Context);
+  const { favourites, reset } = useFavourites();
 
   return (
     <div className="favourites">

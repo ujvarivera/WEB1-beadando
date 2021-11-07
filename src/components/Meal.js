@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { Context } from "../context/FavouritesContext";
+import useFavourites from "../hooks/useFavourites";
 
 export default function Meal({ image, name, data }) {
-  const { favourites, like, unlike } = useContext(Context);
+  const { favourites, like, unlike } = useFavourites();
 
   return (
     <div className="meal-container">
