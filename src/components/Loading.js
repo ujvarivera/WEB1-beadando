@@ -1,5 +1,5 @@
 import loading from "../assets/loading.gif";
 
-export default function Loaded() {
+export default function Loading() {
   return <img src={loading} alt="loading..." />;
 }

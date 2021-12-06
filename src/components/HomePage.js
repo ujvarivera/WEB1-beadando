@@ -1,7 +1,7 @@
 import React from "react";
 import Meal from "./Meal";
 import useAxios from "../hooks/useAxios";
-import Loaded from "./Loaded";
+import Loading from "./Loading";
 
 export default function HomePage() {
   const char = "b";
@@ -10,16 +10,14 @@ export default function HomePage() {
   const { data: mealData, loaded } = useAxios(URL);
 
   if (!loaded) {
-    return <Loaded />;
+    return <Loading />;
   }
 
   return (
     <div className="Home">
       {mealData.meals.map((meal) => (
         <Meal
-          name={meal.strMeal}
           key={meal.idMeal}
-          image={meal.strMealThumb}
           data={meal}
         />
       ))}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Meal from "./Meal";
 import Input from "./Input";
 import useAxios from "../hooks/useAxios";
-import Loaded from "./Loaded";
+import Loading from "./Loading";
 import HomePage from "./HomePage";
 
 export default function SearchingMeals() {
@@ -26,7 +26,7 @@ export default function SearchingMeals() {
   };
 
   if (!loaded) {
-    return <Loaded />;
+    return <Loading />;
   }
 
   const isMealSearched = () => {
@@ -47,9 +47,7 @@ export default function SearchingMeals() {
       {foodData.meals ? (
         foodData.meals.map((meal) => (
           <Meal
-            name={meal.strMeal}
             key={meal.idMeal}
-            image={meal.strMealThumb}
             data={meal}
           />
         ))
