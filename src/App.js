@@ -8,20 +8,18 @@ import ErrorBoundary from "./components/ErrorBoundary";
 export default function App() {
   return (
     <ErrorBoundary>
-      <NavBar />
-      <Switch>
-        <Route exact path="/">
-          <FavouritesContext>
+      <FavouritesContext>
+        <NavBar />
+        <Switch>
+          <Route exact path="/">
             <SearchingMeals />
-          </FavouritesContext>
-        </Route>
-        <Route path="/favourites">
-          <FavouritesContext>
+          </Route>
+          <Route path="/favourites">
             <Favourites />
-          </FavouritesContext>
-        </Route>
-        <Redirect from="*" to="/" />
-      </Switch>
+          </Route>
+          <Redirect from="*" to="/" />
+        </Switch>
+      </FavouritesContext>
     </ErrorBoundary>
   );
 }

@@ -11,7 +11,7 @@ export default function Meal({ data }) {
         <h2>
           <a href={data.strYoutube} target="_blank" rel="noopener noreferrer">You can watch a video how to make it</a>
         </h2>
-        {favourites.includes(data) ? (
+        {favourites.find((fav) => fav.idMeal === data.idMeal) ? (
           <button className="fav" onClick={() => unlike(data)}>Unlike</button>
         ) : (
           <button className="fav" onClick={() => like(data)}>Like</button>

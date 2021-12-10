@@ -44,15 +44,13 @@ export default function SearchingMeals() {
         url={url}
       />
       {isMealSearched()}
-      {foodData.meals ? (
+      {foodData.meals && (
         foodData.meals.map((meal) => (
           <Meal
             key={meal.idMeal}
             data={meal}
           />
         ))
-      ) : (
-        <div></div>
       )}
     </div>
   );
